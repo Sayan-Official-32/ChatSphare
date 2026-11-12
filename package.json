@@ -1,0 +1,27 @@
+{
+  "name": "chatsphare-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ChatSphare AI Agent Platform — Root Workspace Configuration",
+  "scripts": {
+    "dev": "python run.py dev",
+    "dev:backend": "python run.py backend",
+    "dev:frontend": "python run.py frontend",
+    "build": "npm run build --prefix frontend",
+    "prod": "python run.py prod",
+    "start": "python run.py prod"
+  },
+  "keywords": [
+    "chatsphare",
+    "ai-agent",
+    "rag",
+    "fastapi",
+    "react",
+    "vite",
+    "pgvector",
+    "mistral",
+    "gemini"
+  ],
+  "author": "",
+  "license": "ISC"
+}

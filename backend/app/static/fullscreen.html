@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatSphare Agent</title>
+  <link rel="stylesheet" href="/static/fullscreen.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: #f8fafc; height: 100vh; display: flex; flex-direction: column; }
+    .chat-header { background: #6366f1; color: white; padding: 16px; display: flex; align-items: center; gap: 12px; }
+    .chat-header h1 { font-size: 16px; font-weight: 600; }
+    .chat-messages { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+    .message { max-width: 80%; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.4; }
+    .message.assistant { background: white; border: 1px solid #e2e8f0; align-self: flex-start; }
+    .message.user { background: #6366f1; color: white; align-self: flex-end; }
+    .chat-input-bar { padding: 12px; background: white; border-top: 1px solid #e2e8f0; display: flex; gap: 8px; }
+    .chat-input-bar input { flex: 1; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 20px; outline: none; }
+    .chat-input-bar button { background: #6366f1; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="chat-header">
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; color: #6366f1; font-weight: bold;">🪐</div>
+    <div>
+      <h1 id="bot-name">Support Specialist</h1>
+      <p style="font-size: 12px; opacity: 0.9;">Powered by ChatSphare</p>
+    </div>
+  </div>
+  <div class="chat-messages" id="messages">
+    <div class="message assistant">Hello! How can I assist you today?</div>
+  </div>
+  <div class="chat-input-bar">
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <button id="sendBtn">Send</button>
+  </div>
+</body>
+</html>

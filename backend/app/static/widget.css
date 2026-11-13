@@ -1,0 +1,4 @@
+/* ChatSphare Scoped Widget Styles */
+#chatsphare-bubble button:hover {
+  transform: scale(1.06);
+}

@@ -21,30 +21,32 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 
-const apiKey = import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyD7sfpiJ79kFVrzy0izsLOD_vfc9zqsR9g";
-const isConfigured = Boolean(apiKey && apiKey.trim() && !apiKey.includes("dummy"));
+const apiKey = (import.meta.env.VITE_FIREBASE_API_KEY || "").trim();
+const isConfigured = Boolean(apiKey && !apiKey.includes("dummy"));
 
 const firebaseConfig = {
   apiKey: apiKey,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "chatbook-68a8f.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "chatbook-68a8f",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "chatbook-68a8f.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "815798702955",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:815798702955:web:cfa106c88585ef2d16f22e",
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-YRS46KW4FJ",
+  authDomain: (import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "").trim(),
+  projectId: (import.meta.env.VITE_FIREBASE_PROJECT_ID || "").trim(),
+  storageBucket: (import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "").trim(),
+  messagingSenderId: (import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "").trim(),
+  appId: (import.meta.env.VITE_FIREBASE_APP_ID || "").trim(),
+  measurementId: (import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "").trim(),
 };
 
 let app = null;
 let authInstance = null;
 let googleProviderInstance = null;
 
-try {
-  app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
-  authInstance = getAuth(app);
-  googleProviderInstance = new GoogleAuthProvider();
-  googleProviderInstance.setCustomParameters({ prompt: 'select_account' });
-} catch (e) {
-  console.warn('[Firebase] Client initialization warning:', e?.message || e);
+if (isConfigured) {
+  try {
+    app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+    authInstance = getAuth(app);
+    googleProviderInstance = new GoogleAuthProvider();
+    googleProviderInstance.setCustomParameters({ prompt: 'select_account' });
+  } catch (e) {
+    console.warn('[Firebase] Client initialization warning:', e?.message || e);
+  }
 }
 
 export const auth = authInstance;
@@ -64,10 +66,10 @@ export function getCleanAuthErrorMessage(err) {
 
   switch (code) {
     case 'auth/unauthorized-domain':
-      return 'This domain (chatbook-psi-brown.vercel.app) is not authorized in Firebase Console. Please add it to Firebase Console > Authentication > Settings > Authorized domains.';
+      return 'This domain is not authorized in Firebase Console. Please add it to Firebase Console > Authentication > Settings > Authorized domains.';
     case 'auth/api-key-not-valid':
     case 'auth/invalid-api-key':
-      return 'Firebase API key is invalid or missing in Vercel environment variables. Please check VITE_FIREBASE_API_KEY and redeploy.';
+      return 'Firebase API key is invalid or missing in environment variables. Please check VITE_FIREBASE_API_KEY.';
     case 'auth/network-request-failed':
       return 'Network request failed. Please check your internet connection or backend connectivity.';
     case 'auth/operation-not-allowed':

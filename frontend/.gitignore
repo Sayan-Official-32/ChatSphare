@@ -1,0 +1,50 @@
+# =============================================================================
+# chatbook — Frontend (React + Vite) .gitignore
+# =============================================================================
+
+# ── Dependencies ─────────────────────────────────────────────────────────────
+node_modules/
+.pnp/
+.pnp.js
+.pnp.cjs
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ── Build output ─────────────────────────────────────────────────────────────
+dist/
+build/
+*.tsbuildinfo
+
+# ── Vite / tooling caches ────────────────────────────────────────────────────
+.vite/
+.eslintcache
+.stylelintcache
+*.local
+
+# ── Environment & secrets ────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ── Logs / crash reports ─────────────────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ── Editor / OS ──────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── Testing (when you add a test runner) ─────────────────────────────────────
+coverage/
+.nyc_output/

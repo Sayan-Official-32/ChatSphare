@@ -30,7 +30,7 @@ async function apiFetch(path, options = {}) {
     headers['Content-Type'] = 'application/json';
   }
 
-  const token = localStorage.getItem('chatsphare_token') || sessionStorage.getItem('chatsphare_token') || localStorage.getItem('chatbook_token') || sessionStorage.getItem('chatbook_token');
+  const token = localStorage.getItem('chatsphare_token') || sessionStorage.getItem('chatsphare_token');
   if (token && !headers['Authorization']) {
     headers['Authorization'] = `Bearer ${token}`;
   }

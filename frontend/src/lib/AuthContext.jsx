@@ -76,7 +76,8 @@ export function AuthProvider({ children }) {
             // User is signed in via Firebase — persist to BFF cookie & server sync
             try {
               const idToken = await firebaseUser.getIdToken();
-              localStorage.setItem('chatbook_token', idToken);
+              localStorage.setItem('chatsphare_token', idToken);
+              localStorage.removeItem('chatsphare_token');
               await createBFFSession(idToken, firebaseUser);
             } catch {
               /* ignore — BFF may be temporarily unreachable */
@@ -90,7 +91,7 @@ export function AuthProvider({ children }) {
             });
           } else {
             // Firebase says no user — clear context (logout)
-            localStorage.removeItem('chatbook_token');
+            localStorage.removeItem('chatsphare_token');
             setUser(null);
           }
 

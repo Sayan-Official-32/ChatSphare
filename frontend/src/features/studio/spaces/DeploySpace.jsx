@@ -125,7 +125,7 @@ export default function DeploySpace({ agentState, isDark = true, onUpdateAgentSt
     }
   }, [agentState?.is_public]);
   const [embedTab, setEmbedTab] = useState('bubble'); // 'bubble' | 'pill' | 'iframe'
-  const [embedDomain, setEmbedDomain] = useState(() => typeof window !== 'undefined' ? window.location.origin : 'https://chatbook-psi-brown.vercel.app');
+  const [embedDomain, setEmbedDomain] = useState(() => import.meta.env.VITE_APP_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5173'));
   const [publishing, setPublishing] = useState(false);
   const [publishNotice, setPublishNotice] = useState(false);
 
@@ -151,7 +151,7 @@ export default function DeploySpace({ agentState, isDark = true, onUpdateAgentSt
     : `spbrand_${agentState?.agent_id || 'efb3e1dc-4d55-49c4-985f-c94841ed5ada'}`;
 
   const getBaseUrl = () => {
-    return (embedDomain || (typeof window !== 'undefined' ? window.location.origin : 'https://chatbook-psi-brown.vercel.app')).trim().replace(/\/$/, '');
+    return (embedDomain || import.meta.env.VITE_APP_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5173')).trim().replace(/\/$/, '');
   };
 
   const handleCopyAgentId = () => {
@@ -589,7 +589,7 @@ export default function DeploySpace({ agentState, isDark = true, onUpdateAgentSt
               type="text"
               value={embedDomain}
               onChange={(e) => setEmbedDomain(e.target.value)}
-              placeholder="https://chatbook-psi-brown.vercel.app"
+              placeholder="https://your-domain.com"
               style={{
                 background: isDark ? 'rgba(255,255,255,0.05)' : '#ffffff',
                 border: `1px solid ${borderColor}`,

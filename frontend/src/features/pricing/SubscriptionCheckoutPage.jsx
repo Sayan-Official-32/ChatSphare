@@ -1,6 +1,6 @@
 /**
  * @file SubscriptionCheckoutPage.jsx
- * @description Enterprise Subscription Checkout & Plan Upgrade Page for Chatbook.
+ * @description Enterprise Subscription Checkout & Plan Upgrade Page for ChatSphare.
  * Faithfully reproduces the reference UI (media_1789327725838.png):
  * 1. Split 2-column layout (Left: Plan & currency breakdown, Right: Promo code & Payment method).
  * 2. INR and USD dual currency calculation with live conversion notice.
@@ -229,8 +229,10 @@ export default function SubscriptionCheckoutPage() {
       const res = await applySubscriptionPromoCode(payload);
       setUpgradeResult(res);
       setSuccessModalOpen(true);
-      window.dispatchEvent(new CustomEvent('chatbook:credits_updated'));
-      window.dispatchEvent(new CustomEvent('chatbook:subscription_updated', { detail: res }));
+      window.dispatchEvent(new CustomEvent('chatsphare:credits_updated'));
+      window.dispatchEvent(new CustomEvent('chatsphare:subscription_updated', { detail: res }));
+      window.dispatchEvent(new CustomEvent('chatsphare:credits_updated'));
+      window.dispatchEvent(new CustomEvent('chatsphare:subscription_updated', { detail: res }));
     } catch (err) {
       alert(err.message || 'Failed to apply subscription upgrade.');
     } finally {

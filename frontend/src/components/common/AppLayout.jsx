@@ -49,7 +49,8 @@ export default function AppLayout() {
     const handleCreditUpdate = () => {
       loadCredits(false);
     };
-    window.addEventListener('chatbook:credits_updated', handleCreditUpdate);
+    window.addEventListener('chatsphare:credits_updated', handleCreditUpdate);
+    window.addEventListener('chatsphare:credits_updated', handleCreditUpdate);
 
     // 3. Keep active auto-refresh running periodically (every 20 seconds) while tab is visible
     const pollInterval = setInterval(() => {
@@ -73,7 +74,8 @@ export default function AppLayout() {
 
     return () => { 
       isMounted = false; 
-      window.removeEventListener('chatbook:credits_updated', handleCreditUpdate);
+      window.removeEventListener('chatsphare:credits_updated', handleCreditUpdate);
+      window.removeEventListener('chatsphare:credits_updated', handleCreditUpdate);
       clearInterval(pollInterval);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('focus', handleFocus);

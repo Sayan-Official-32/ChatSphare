@@ -21,7 +21,7 @@ export default function OAuthConnectModal({ agentId, tool, theme, onClose, onSav
   const [duration, setDuration] = useState(tool.configuration?.duration_minutes || 30);
   const [enableMeet, setEnableMeet] = useState(tool.configuration?.enable_google_meet !== false);
 
-  const [spreadsheetName, setSpreadsheetName] = useState(tool.configuration?.spreadsheet_name || 'Chatbook Leads & Inquiries');
+  const [spreadsheetName, setSpreadsheetName] = useState(tool.configuration?.spreadsheet_name || 'ChatSphare Leads & Inquiries');
   const [sheetName, setSheetName] = useState(tool.configuration?.sheet_name || 'Sheet1');
   const [autoAppend, setAutoAppend] = useState(tool.configuration?.auto_append_leads !== false);
 
@@ -382,7 +382,7 @@ export default function OAuthConnectModal({ agentId, tool, theme, onClose, onSav
                   type="text"
                   value={spreadsheetName}
                   onChange={e => setSpreadsheetName(e.target.value)}
-                  placeholder="Chatbook Leads & Inquiries"
+                  placeholder="ChatSphare Leads & Inquiries"
                   style={{
                     width: '100%',
                     padding: '0.6rem 0.85rem',

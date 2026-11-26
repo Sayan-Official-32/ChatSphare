@@ -13,8 +13,8 @@
 
 The objective of this engineering cycle was to transition ChatSphare from an empty directory scaffold into a **fully functioning, contract-first REST API backend**. 
 
-Using the architectural patterns of the reference project (`chatbook`) as an conceptual foundation, all components were rebuilt, modernized, and decoupled for ChatSphare:
-* **Zero Contamination:** `chatbook` was referenced in read-only mode and remains 100% untouched.
+Using the architectural patterns of the reference project (`chatsphare`) as an conceptual foundation, all components were rebuilt, modernized, and decoupled for ChatSphare:
+* **Zero Contamination:** `chatsphare` was referenced in read-only mode and remains 100% untouched.
 * **Modernized Engine:** Replaced deprecated Pydantic v1 constructs with strict Pydantic v2 models (`BaseSchema`, `model_dump()`).
 * **Non-Blocking Team Contracts:** Built complete mock and stub fallbacks across all 12 router domains so the frontend engineering team can immediately build against `http://127.0.0.1:8000/docs` without waiting for cloud credentials.
 * **Strict Git Policy:** All changes remain in the local working directory of `feat/backend-foundations` without Git commits, ensuring full reviewability.
@@ -68,7 +68,7 @@ flowchart TD
 
 ### Phase 1: Git Branching & Worktree Isolation
 * Branch `feat/backend-foundations` was branched from `main`.
-* Verified that `chatbook` was not modified in any directory or tracked file.
+* Verified that `chatsphare` was not modified in any directory or tracked file.
 
 ---
 

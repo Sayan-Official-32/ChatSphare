@@ -373,7 +373,7 @@ export default function Step5Publishing({
 
   // Build snippet strings based on tab & visibility mode (dynamic origin)
   const getEmbedSnippet = () => {
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://chatbook-psi-brown.vercel.app';
+    const origin = typeof window !== 'undefined' ? window.location.origin : (import.meta.env.VITE_APP_URL || 'http://localhost:5173');
     const apiKeyAttr = !isPublic ? ' data-api-key="YOUR_TEAMSPACE_RUNTIME_KEY"' : '';
 
     if (activeTab === 'bubble') {
@@ -441,7 +441,7 @@ export default function Step5Publishing({
       name: 'WordPress',
       icon: WordPressIcon,
       locked: false,
-      description: 'Use the official ChatBook plugin for WordPress to add the widget.',
+      description: 'Use the official ChatSphare plugin for WordPress to add the widget.',
     },
     {
       id: 'wix',

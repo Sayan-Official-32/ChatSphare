@@ -252,7 +252,7 @@ export default function LiveWidgetPreview({ brandData }) {
               fontSize: '0.7rem',
               color: isDark ? 'rgba(255,255,255,0.4)' : '#64748b',
             }}>
-              Powered by <strong style={{ color: '#6366f1' }}>ChatBook</strong>
+              Powered by <strong style={{ color: '#6366f1' }}>ChatSphare</strong>
             </div>
           )}
         </div>

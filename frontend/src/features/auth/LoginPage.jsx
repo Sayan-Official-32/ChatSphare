@@ -44,7 +44,7 @@ import {
   Loader2,
   Sparkles,
 } from 'lucide-react';
-import chatBookLogo from '@/assets/chat_Book_logo.png';
+import chatSphareLogo from '@/assets/chatsphare_logo.png';
 
 /**
  * Authentication Page Component.
@@ -183,7 +183,7 @@ export default function LoginPage() {
       const userCredential = await signInWithEmailAndPassword(auth, targetEmail, loginPassword);
       if (userCredential.user) {
         const idToken = await userCredential.user.getIdToken();
-        localStorage.setItem('chatbook_token', idToken);
+        localStorage.setItem('chatsphare_token', idToken);
         await createBFFSession(idToken, userCredential.user);
         navigate('/app/brand-agent/new');
       }
@@ -272,7 +272,7 @@ export default function LoginPage() {
           await updateProfile(user, { displayName: cleanUsername });
         }
         const idToken = await user.getIdToken();
-        localStorage.setItem('chatbook_token', idToken);
+        localStorage.setItem('chatsphare_token', idToken);
         await createBFFSession(idToken, { ...user, displayName: cleanUsername });
 
         setSuccessMessage('Account created successfully!');
@@ -297,7 +297,7 @@ export default function LoginPage() {
       const result = await signInWithPopup(auth, googleProvider);
       if (result.user) {
         const idToken = await result.user.getIdToken();
-        localStorage.setItem('chatbook_token', idToken);
+        localStorage.setItem('chatsphare_token', idToken);
         await createBFFSession(idToken, result.user);
         navigate('/app/brand-agent/new');
       }
@@ -390,8 +390,8 @@ export default function LoginPage() {
         )}
         <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
           <img
-            src={chatBookLogo}
-            alt="ChatBook Logo"
+            src={chatSphareLogo}
+            alt="ChatSphare Logo"
             onClick={() => navigate('/')}
             style={{
               height: '46px',
@@ -408,7 +408,7 @@ export default function LoginPage() {
             margin: 0,
             letterSpacing: '-0.02em',
           }}>
-            {isLogin ? 'Welcome back to ChatBook' : 'Create your ChatBook Account'}
+            {isLogin ? 'Welcome back to ChatSphare' : 'Create your ChatSphare Account'}
           </h1>
           <p style={{
             fontSize: '0.85rem',
@@ -825,7 +825,7 @@ export default function LoginPage() {
           borderTop: '1px solid rgba(255, 255, 255, 0.08)', textAlign: 'center',
         }}>
           <p style={{ fontSize: '0.82rem', color: 'rgba(255, 255, 255, 0.5)', margin: 0 }}>
-            {isLogin ? "Don't have an account yet?" : "Already registered with ChatBook?"}{' '}
+            {isLogin ? "Don't have an account yet?" : "Already registered with ChatSphare?"}{' '}
             <span
               onClick={() => {
                 setIsLogin(!isLogin);

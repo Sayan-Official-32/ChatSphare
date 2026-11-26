@@ -874,7 +874,7 @@ ${brandDesc || `${projectName} delivers dependable solutions and customer-centri
   // Quota state for AI instruction generations (max 5 for normal/free users)
   const [aiQuota, setAiQuota] = useState(() => {
     try {
-      const cached = localStorage.getItem('chatbook_ai_gen_quota');
+      const cached = localStorage.getItem('chatsphare_ai_gen_quota');
       if (cached) return JSON.parse(cached);
     } catch {}
     return { is_normal_user: true, used: 0, remaining: 5, max_allowed: 5, can_generate: true };
@@ -887,7 +887,7 @@ ${brandDesc || `${projectName} delivers dependable solutions and customer-centri
         if (mounted && res?.quota) {
           setAiQuota(res.quota);
           try {
-            localStorage.setItem('chatbook_ai_gen_quota', JSON.stringify(res.quota));
+            localStorage.setItem('chatsphare_ai_gen_quota', JSON.stringify(res.quota));
           } catch {}
         }
       })
@@ -961,7 +961,7 @@ ${brandDesc || `${projectName} delivers dependable solutions and customer-centri
       if (res?.quota) {
         setAiQuota(res.quota);
         try {
-          localStorage.setItem('chatbook_ai_gen_quota', JSON.stringify(res.quota));
+          localStorage.setItem('chatsphare_ai_gen_quota', JSON.stringify(res.quota));
         } catch {}
       }
 

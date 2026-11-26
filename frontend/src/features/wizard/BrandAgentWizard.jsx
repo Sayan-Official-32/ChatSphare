@@ -92,7 +92,7 @@ export default function BrandAgentWizard() {
         }
       }
     } catch { /* fallback */ }
-    return (sessionStorage.getItem('chatsphare_initial_url') || sessionStorage.getItem('chatbook_initial_url')) ? 2 : 1;
+    return sessionStorage.getItem('chatsphare_initial_url') ? 2 : 1;
   });
 
   const [isCrawling, setIsCrawling] = useState(false);
@@ -182,18 +182,16 @@ export default function BrandAgentWizard() {
           setAgentState(freshState);
           localStorage.removeItem(currentKey);
           localStorage.removeItem('chatsphare_wizard_draft');
-          localStorage.removeItem('chatbook_wizard_draft');
         }
       } catch (err) {
         console.warn('Draft restoration notice:', err);
       }
 
       // Pick up URL typed on the landing page if any
-      const savedUrl = sessionStorage.getItem('chatsphare_initial_url') || sessionStorage.getItem('chatbook_initial_url');
+      const savedUrl = sessionStorage.getItem('chatsphare_initial_url');
       if (savedUrl) {
         handleStartCrawl(savedUrl, true);
         sessionStorage.removeItem('chatsphare_initial_url');
-        sessionStorage.removeItem('chatbook_initial_url');
       }
     }
     restoreActiveWorkflow();
@@ -650,7 +648,6 @@ export default function BrandAgentWizard() {
       // Clear local storage draft since task is fully completed!
       localStorage.removeItem(getDraftStorageKey(currentUser?.uid));
       localStorage.removeItem('chatsphare_wizard_draft');
-      localStorage.removeItem('chatbook_wizard_draft');
       setResumedBanner(null);
     } catch (e) {
       console.warn('Publish notice:', e);
@@ -666,7 +663,6 @@ export default function BrandAgentWizard() {
     }
     localStorage.removeItem(getDraftStorageKey(currentUser?.uid));
     localStorage.removeItem('chatsphare_wizard_draft');
-    localStorage.removeItem('chatbook_wizard_draft');
     setResumedBanner(null);
     const freshDraftId = generateAgentId();
     setAgentState({

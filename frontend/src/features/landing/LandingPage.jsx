@@ -48,7 +48,7 @@ import {
 } from 'lucide-react';
 import AuthModal from '@/features/auth/AuthModal';
 import { useAuth } from '@/lib/AuthContext';
-import chatBookLogo from '@/assets/chat_Book_logo.png';
+import chatSphareLogo from '@/assets/chatsphare_logo.png';
 import './LandingPage.css';
 
 /**
@@ -171,7 +171,6 @@ export default function LandingPage() {
 
     sessionStorage.setItem('chatsphare_initial_url', normalised);
     sessionStorage.setItem('chatsphare_agent_type', activeTab);
-    sessionStorage.setItem('chatbook_initial_url', normalised);
     setUrlError('');
     navigate('/app/brand-agent/new');
   };
@@ -188,7 +187,6 @@ export default function LandingPage() {
       if (!/^https?:\/\//i.test(trimmed)) trimmed = 'https://' + trimmed;
       sessionStorage.setItem('chatsphare_initial_url', trimmed);
       sessionStorage.setItem('chatsphare_agent_type', activeTab);
-      sessionStorage.setItem('chatbook_initial_url', trimmed);
       navigate('/app/brand-agent/new');
     } else if (pendingAction === 'dashboard') {
       navigate('/app/brand-agent/new');
@@ -213,11 +211,11 @@ export default function LandingPage() {
             role="button"
             tabIndex={0}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') navigate('/'); }}
-            aria-label="ChatBook Home"
+            aria-label="ChatSphare Home"
           >
             <img
-              src={chatBookLogo}
-              alt="ChatBook Logo"
+              src={chatSphareLogo}
+              alt="ChatSphare Logo"
               className="cb-nav-logo"
             />
             <span className="cb-nav-brand-text">ChatSphare</span>
@@ -307,7 +305,7 @@ export default function LandingPage() {
             {/* Subtitle */}
             <p className="cb-hero-subtitle">
               {activeTab === 'brand'
-                ? 'ChatBook indexes your documentation, extracts brand styling, and deploys a production-ready AI agent to your website in minutes.'
+                ? 'ChatSphare indexes your documentation, extracts brand styling, and deploys a production-ready AI agent to your website in minutes.'
                 : 'Connect your tools. AI Workforce automates CRM syncing, lead enrichment, document processing, and internal operational pipelines.'}
             </p>
 

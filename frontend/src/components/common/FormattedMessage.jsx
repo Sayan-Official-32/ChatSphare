@@ -1,6 +1,6 @@
 /**
  * @file FormattedMessage.jsx
- * @description Rich Markdown & Formatted Text Renderer component for Chatbook.
+ * @description Rich Markdown & Formatted Text Renderer component for ChatSphare.
  * Parses markdown syntax (**bold**, *italic*, `code`, headers, lists, links) 
  * into styled React DOM elements without displaying raw formatting characters.
  */

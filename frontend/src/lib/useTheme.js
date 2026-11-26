@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const THEME_STORAGE_KEY = 'chatbook_theme';
+const THEME_STORAGE_KEY = 'chatsphare_theme';
 
 /**
  * Enterprise Theme management hook with cross-tab and cross-component broadcast synchronization.
@@ -21,7 +21,7 @@ export function useTheme(defaultTheme = 'dark') {
     setThemeState(resolved);
     try {
       localStorage.setItem(THEME_STORAGE_KEY, resolved);
-      window.dispatchEvent(new Event('chatbook-theme-change'));
+      window.dispatchEvent(new Event('chatsphare-theme-change'));
     } catch {}
   }, [theme]);
 
@@ -37,11 +37,11 @@ export function useTheme(defaultTheme = 'dark') {
       }
     };
     window.addEventListener('storage', handleSync);
-    window.addEventListener('chatbook-theme-change', handleSync);
+    window.addEventListener('chatsphare-theme-change', handleSync);
     const interval = setInterval(handleSync, 100);
     return () => {
       window.removeEventListener('storage', handleSync);
-      window.removeEventListener('chatbook-theme-change', handleSync);
+      window.removeEventListener('chatsphare-theme-change', handleSync);
       clearInterval(interval);
     };
   }, [theme]);

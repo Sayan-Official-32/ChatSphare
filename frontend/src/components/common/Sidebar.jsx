@@ -36,7 +36,7 @@ import { auth, signOut as firebaseSignOut } from '@/lib/firebaseClient';
 import { logoutBFFSession } from '@/services/api';
 import { useAuth } from '@/lib/AuthContext';
 import useTheme from '@/lib/useTheme';
-import chatBookLogo from '@/assets/chat_Book_logo.png';
+import chatSphareLogo from '@/assets/chatsphare_logo.png';
 
 
 /* Animation Timing Constants */
@@ -121,7 +121,7 @@ export default function Sidebar({
       if (onRefreshCredits) {
         await onRefreshCredits();
       } else {
-        window.dispatchEvent(new CustomEvent('chatbook:credits_updated'));
+        window.dispatchEvent(new CustomEvent('chatsphare:credits_updated'));
       }
     } finally {
       setTimeout(() => setInternalRefreshing(false), 500);
@@ -181,11 +181,8 @@ export default function Sidebar({
         localStorage.removeItem('chatsphare_token');
         sessionStorage.removeItem('chatsphare_token');
         sessionStorage.removeItem('chatsphare_initial_url');
-        localStorage.removeItem('chatbook_token');
-        sessionStorage.removeItem('chatbook_token');
-        sessionStorage.removeItem('chatbook_initial_url');
         Object.keys(localStorage).forEach((k) => {
-          if (k.startsWith('chatsphare_wizard_draft') || k.startsWith('chatbook_wizard_draft') || k.startsWith('cb_conv_') || k.startsWith('cb_celebrated_')) {
+          if (k.startsWith('chatsphare_wizard_draft') || k.startsWith('cb_conv_') || k.startsWith('cb_celebrated_')) {
             localStorage.removeItem(k);
           }
         });
@@ -508,7 +505,7 @@ export default function Sidebar({
             transition:     `width ${WIDTH_DUR} ${SPRING}`,
           }}>
             <img
-              src={chatBookLogo}
+              src={chatSphareLogo}
               alt="ChatSphare Logo"
               style={{
                 height: '34px',

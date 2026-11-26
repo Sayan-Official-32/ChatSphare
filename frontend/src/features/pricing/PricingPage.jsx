@@ -1,6 +1,6 @@
 /**
  * @file PricingPage.jsx
- * @description Enterprise Subscription & Plan Management Page for Chatbook (/app/pricing).
+ * @description Enterprise Subscription & Plan Management Page for ChatSphare (/app/pricing).
  * Faithfully reproduces the reference UI:
  * 1. Centered header with dynamic teamspace label and Monthly vs. Annually toggle.
  * 2. 4 Pricing Tiers: Free, Explorer, Builder (★ Most Popular), and Scale with dynamic savings.
@@ -8,7 +8,7 @@
  * 4. Collapsible "View Detailed Plan Comparison" feature matrix.
  * 5. Interactive FAQ accordion with "Show All FAQs" expansion.
  * 6. Interactive checkout & contact sales modals.
- * 7. Complete dark & light theme adaptability integrated with Chatbook design system.
+ * 7. Complete dark & light theme adaptability integrated with ChatSphare design system.
  */
 
 import React, { useState, useEffect } from 'react';
@@ -67,13 +67,13 @@ export default function PricingPage() {
         loadSub();
       }
     };
-    window.addEventListener('chatbook:subscription_updated', handleSubUpdate);
-    window.addEventListener('chatbook:credits_updated', loadSub);
+    window.addEventListener('chatsphare:subscription_updated', handleSubUpdate);
+    window.addEventListener('chatsphare:credits_updated', loadSub);
 
     return () => {
       isMounted = false;
-      window.removeEventListener('chatbook:subscription_updated', handleSubUpdate);
-      window.removeEventListener('chatbook:credits_updated', loadSub);
+      window.removeEventListener('chatsphare:subscription_updated', handleSubUpdate);
+      window.removeEventListener('chatsphare:credits_updated', loadSub);
     };
   }, [user]);
 

@@ -40,7 +40,7 @@ import {
   ArrowRight,
   Sparkles,
 } from 'lucide-react';
-import chatBookLogo from '@/assets/chat_Book_logo.png';
+import chatSphareLogo from '@/assets/chatsphare_logo.png';
 
 /**
  * Authentication Modal Dialog component.
@@ -119,7 +119,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
       const userCredential = await signInWithEmailAndPassword(auth, targetEmail, loginPassword);
       if (userCredential.user) {
         const idToken = await userCredential.user.getIdToken();
-        localStorage.setItem('chatbook_token', idToken);
+        localStorage.setItem('chatsphare_token', idToken);
         await createBFFSession(idToken, userCredential.user);
         onAuthSuccess(userCredential.user);
       }
@@ -193,7 +193,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
           await updateProfile(user, { displayName: cleanUsername });
         }
         const idToken = await user.getIdToken();
-        localStorage.setItem('chatbook_token', idToken);
+        localStorage.setItem('chatsphare_token', idToken);
         await createBFFSession(idToken, { ...user, displayName: cleanUsername });
         onAuthSuccess(user);
       }
@@ -216,7 +216,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
       const result = await signInWithPopup(auth, googleProvider);
       if (result.user) {
         const idToken = await result.user.getIdToken();
-        localStorage.setItem('chatbook_token', idToken);
+        localStorage.setItem('chatsphare_token', idToken);
         await createBFFSession(idToken, result.user);
         onAuthSuccess(result.user);
       }
@@ -279,9 +279,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
 
         {/* Logo & Header */}
         <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
-          <img src={chatBookLogo} alt="ChatBook" style={{ height: '38px', width: 'auto', marginBottom: '0.5rem' }} />
+          <img src={chatSphareLogo} alt="ChatSphare" style={{ height: '38px', width: 'auto', marginBottom: '0.5rem' }} />
           <h2 style={{ fontSize: '1.35rem', fontWeight: 800, margin: 0 }}>
-            {isLogin ? 'Sign In to ChatBook' : 'Create an Account'}
+            {isLogin ? 'Sign In to ChatSphare' : 'Create an Account'}
           </h2>
         </div>
 

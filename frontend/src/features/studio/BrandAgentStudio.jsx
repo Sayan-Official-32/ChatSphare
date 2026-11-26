@@ -55,7 +55,7 @@ export default function BrandAgentStudio() {
           ? routeAgentId
           : (routeAgentId ? `spbrand_${routeAgentId}` : 'spbrand_6a9150e5-92ed-42dc-baed-810d0e9a4362');
 
-        const userDraftKey = currentUser?.uid ? `chatbook_wizard_draft_${currentUser.uid}` : 'chatbook_wizard_draft';
+        const userDraftKey = currentUser?.uid ? `chatsphare_wizard_draft_${currentUser.uid}` : 'chatsphare_wizard_draft';
         const res = await fetchAgentDetails(canonicalId).catch(() => null);
         if (res && (res.agent_id || res.id || res.brand_id || res.display_name || res.brand_name)) {
           setAgentState(res);
@@ -81,7 +81,7 @@ export default function BrandAgentStudio() {
         }
       } catch (err) {
         console.warn('Studio agent fetch notice:', err);
-        const userDraftKey = currentUser?.uid ? `chatbook_wizard_draft_${currentUser.uid}` : 'chatbook_wizard_draft';
+        const userDraftKey = currentUser?.uid ? `chatsphare_wizard_draft_${currentUser.uid}` : 'chatsphare_wizard_draft';
         const localDraft = localStorage.getItem(userDraftKey);
         if (localDraft) {
           try {
@@ -104,7 +104,7 @@ export default function BrandAgentStudio() {
 
   const handleUpdateAgentState = (updatedState) => {
     setAgentState(updatedState);
-    const userDraftKey = currentUser?.uid ? `chatbook_wizard_draft_${currentUser.uid}` : 'chatbook_wizard_draft';
+    const userDraftKey = currentUser?.uid ? `chatsphare_wizard_draft_${currentUser.uid}` : 'chatsphare_wizard_draft';
     localStorage.setItem(userDraftKey, JSON.stringify(updatedState));
   };
 
@@ -323,7 +323,7 @@ export default function BrandAgentStudio() {
               <input
                 type="text"
                 readOnly
-                value={`${typeof window !== 'undefined' ? window.location.origin : 'https://chatbook-psi-brown.vercel.app'}/fullscreen-widget/${agentState?.agent_id || 'default'}`}
+                value={`${typeof window !== 'undefined' ? window.location.origin : (import.meta.env.VITE_APP_URL || 'http://localhost:5173')}/fullscreen-widget/${agentState?.agent_id || 'default'}`}
                 style={{
                   flex: 1,
                   padding: '0.55rem 0.75rem',
@@ -336,7 +336,7 @@ export default function BrandAgentStudio() {
               />
               <button
                 onClick={() => {
-                  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://chatbook-psi-brown.vercel.app';
+                  const origin = typeof window !== 'undefined' ? window.location.origin : (import.meta.env.VITE_APP_URL || 'http://localhost:5173');
                   navigator.clipboard.writeText(`${origin}/fullscreen-widget/${agentState?.agent_id || 'default'}`);
                   setCopiedUrl(true);
                   setTimeout(() => setCopiedUrl(false), 2000);
@@ -376,7 +376,7 @@ export default function BrandAgentStudio() {
               wordBreak: 'break-all',
               lineHeight: 1.4,
             }}>
-              {`<script src="${typeof window !== 'undefined' ? window.location.origin : 'https://chatbook-psi-brown.vercel.app'}/widget-embed.js?agent_id=${agentState?.agent_id || 'default'}"></script>`}
+              {`<script src="${typeof window !== 'undefined' ? window.location.origin : (import.meta.env.VITE_APP_URL || 'http://localhost:5173')}/widget-embed.js?agent_id=${agentState?.agent_id || 'default'}"></script>`}
             </div>
           </div>
         </div>

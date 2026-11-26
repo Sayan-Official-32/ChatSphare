@@ -666,7 +666,7 @@ export default function TestSpace({ agentState, user, isDark = true }) {
             </button>
           </form>
           <div style={{ textAlign: 'center', fontSize: '0.62rem', color: isDark ? 'rgba(255,255,255,0.35)' : '#94a3b8', padding: '0.4rem 0 0.2rem 0' }}>
-            Powered by <strong style={{ color: primaryColor }}>ChatBook</strong>
+            Powered by <strong style={{ color: primaryColor }}>ChatSphare</strong>
           </div>
         </div>
       </div>

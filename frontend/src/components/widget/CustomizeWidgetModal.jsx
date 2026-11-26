@@ -993,7 +993,7 @@ export default function CustomizeWidgetModal({
                         fontSize: '0.72rem',
                         color: isLight ? '#64748b' : 'rgba(255,255,255,0.4)',
                       }}>
-                        Powered by <strong style={{ color: '#6366f1' }}>ChatBook</strong>
+                        Powered by <strong style={{ color: '#6366f1' }}>ChatSphare</strong>
                       </div>
                     )}
                   </div>
@@ -1168,7 +1168,7 @@ export default function CustomizeWidgetModal({
 
                     {!settings.hide_branding && (
                       <div style={{ position: 'absolute', bottom: '0.75rem', right: '1rem', fontSize: '0.62rem', color: isLight ? '#9ca3af' : 'rgba(255,255,255,0.4)' }}>
-                        Powered by <strong style={{ color: '#6366f1' }}>ChatBook</strong>
+                        Powered by <strong style={{ color: '#6366f1' }}>ChatSphare</strong>
                       </div>
                     )}
                   </div>
@@ -1288,7 +1288,7 @@ export default function CustomizeWidgetModal({
                     onChange={e => updateSetting('hide_branding', e.target.checked)}
                     style={{ accentColor: '#7c3aed', cursor: 'pointer' }}
                   />
-                  <span style={{ fontSize: '0.76rem', color: isDark ? 'rgba(255,255,255,0.5)' : '#64748b' }}>Hide "Powered by ChatBook"</span>
+                  <span style={{ fontSize: '0.76rem', color: isDark ? 'rgba(255,255,255,0.5)' : '#64748b' }}>Hide "Powered by ChatSphare"</span>
                 </div>
               </div>
               <button

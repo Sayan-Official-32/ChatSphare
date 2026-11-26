@@ -45,7 +45,7 @@ export default function FullscreenWidgetPage() {
 
   // Visitor ID generator / persistent storage
   const [visitorId] = useState(() => {
-    const key = 'chatbook_visitor_id';
+    const key = 'chatsphare_visitor_id';
     let vid = localStorage.getItem(key);
     if (!vid) {
       vid = 'vis_' + Math.random().toString(36).substring(2, 11) + Date.now().toString(36);
@@ -70,7 +70,7 @@ export default function FullscreenWidgetPage() {
         if (res.ok) {
           const data = await res.json();
           if (data && data.is_public === false) {
-            const hasAuth = localStorage.getItem('token') || localStorage.getItem('chatbook_user');
+            const hasAuth = localStorage.getItem('chatsphare_token') || localStorage.getItem('chatsphare_user') || localStorage.getItem('token');
             if (!hasAuth) {
               setIsPrivateLocked(true);
               return;
@@ -776,7 +776,7 @@ export default function FullscreenWidgetPage() {
             </form>
 
             <div style={{ textAlign: 'center', fontSize: '0.65rem', color: poweredColor, padding: '0.5rem 0 0.1rem 0' }}>
-              Powered by <strong style={{ color: primaryColor, fontWeight: 700 }}>Chatbook</strong>
+              Powered by <strong style={{ color: primaryColor, fontWeight: 700 }}>ChatSphare</strong>
             </div>
           </div>
         </div>

@@ -1,8 +1,8 @@
 /**
  * @file ComingSoonPage.jsx
- * @description Polished "Coming Soon" Dashboard View for upcoming ChatBook workspace modules.
+ * @description Polished "Coming Soon" Dashboard View for upcoming ChatSphare workspace modules.
  * 
- * Implements a cohesive, enterprise dark/light mode experience matching the ChatBook design system:
+ * Implements a cohesive, enterprise dark/light mode experience matching the ChatSphare design system:
  * 1. Global left navigation sidebar integration.
  * 2. Feature-specific icons, titles, and capability roadmap previews.
  * 3. Clear primary and secondary back navigation actions.
@@ -140,7 +140,7 @@ const FEATURE_CONFIGS = {
     color: '#14b8a6',
     previewHighlights: [
       { title: 'Dedicated Engineer Support', desc: 'Fast resolution SLAs for enterprise deployment, custom integrations, and billing.' },
-      { title: 'Live Troubleshooting', desc: 'Real-time debugging sessions with ChatBook core infrastructure specialists.' },
+      { title: 'Live Troubleshooting', desc: 'Real-time debugging sessions with ChatSphare core infrastructure specialists.' },
       { title: 'Community Discord', desc: 'Join over 5,000+ AI agent developers and product builders.' },
     ],
   },
@@ -236,7 +236,7 @@ export default function ComingSoonPage({ feature: featureProp }) {
             </button>
             <div style={{ height: '16px', width: '1px', background: isDark ? 'rgba(255,255,255,0.1)' : '#cbd5e1' }} />
             <span style={{ fontSize: '0.85rem', color: isDark ? 'rgba(255,255,255,0.5)' : '#64748b' }}>
-              ChatBook Workspace / {config.title}
+              ChatSphare Workspace / {config.title}
             </span>
           </div>
 

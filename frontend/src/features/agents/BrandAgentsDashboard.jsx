@@ -128,7 +128,7 @@ export default function BrandAgentsDashboard() {
 
   // Starts a fresh clean new Brand Agent
   const handleStartNewAgent = () => {
-    localStorage.removeItem('chatbook_wizard_draft');
+    localStorage.removeItem('chatsphare_wizard_draft');
     navigate('/app/brand-agent/new');
   };
 

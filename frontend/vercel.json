@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://chatbook-alb-1382900450.ap-southeast-2.elb.amazonaws.com/api/:path*"
+      "destination": "http://chatsphare-alb-1382900450.ap-southeast-2.elb.amazonaws.com/api/:path*"
     },
     {
       "source": "/widget-embed.js",
-      "destination": "http://chatbook-alb-1382900450.ap-southeast-2.elb.amazonaws.com/widget-embed.js"
+      "destination": "http://chatsphare-alb-1382900450.ap-southeast-2.elb.amazonaws.com/widget-embed.js"
     },
     {
       "source": "/(.*)",

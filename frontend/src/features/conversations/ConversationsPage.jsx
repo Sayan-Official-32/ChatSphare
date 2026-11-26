@@ -1,6 +1,6 @@
 /**
  * @file ConversationsPage.jsx
- * @description Enterprise Conversations & Live Inbox history page for Chatbook.
+ * @description Enterprise Conversations & Live Inbox history page for ChatSphare.
  * Faithfully implements the split-pane layout matching the reference mockup:
  * 1. Global left navigation sidebar integration with active 'Conversations' tab.
  * 2. Header with title, subtitle, and light/dark theme toggle.

@@ -1,6 +1,6 @@
 /**
  * @file ProfilePage.jsx
- * @description Enterprise User Profile & Account Settings View for Chatbook (/app/profile).
+ * @description Enterprise User Profile & Account Settings View for ChatSphare (/app/profile).
  * Faithfully reproduces the reference UI (media_1789370497535.png):
  * 1. Page Header ("Profile" / "Manage your personal account and preferences").
  * 2. Card 1: "Account Information"
